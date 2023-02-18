@@ -1,9 +1,10 @@
 from django.contrib import admin
-from .models import Course
+from .models import Student
 
 # Register your models here.
 
-class CourseAdmin(admin.ModelAdmin):
+
+class StudentAdmin(admin.ModelAdmin):
     readonly_fields = ('created', 'updated')
 
-admin.site.register(Course, CourseAdmin)
+admin.site.register(Student, StudentAdmin)

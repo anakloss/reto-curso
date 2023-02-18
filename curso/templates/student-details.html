@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Edición de Curso {% endblock %}
+
+
+{% block content %}
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs" data-aos="fade-in">
+      <div class="container">
+        <h2>Edición de Estudiante</h2>
+        <p>Est dolorum ut non facere possimus quibusdam eligendi voluptatem. Quia id aut similique quia voluptas sit quaerat debitis. Rerum omnis ipsam aperiam consequatur laboriosam nemo harum praesentium. </p>
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <section id="course-details" class="course-details">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-lg-4 offset-md-4">
+                <form action="/updateStudent/" method="post">
+                  {% csrf_token %}
+                  <div class="course-info d-flex justify-content-between align-items-center">
+                    <label for="txtName"><strong>ID </strong></label>
+                    <p><input type="text" name="txtId" id="txtId" value="{{ student.id }}" class="form-control" placeholder="Nombre" maxlength="50" readonly>
+                    </p>
+                  </div>
+                  <div class="course-info d-flex justify-content-between align-items-center">
+                    <label for="txtName"><strong>Nombre </strong></label>
+                    <p><input type="text" name="txtName" id="txtName" value="{{ student.name }}" class="form-control" placeholder="Nombre" maxlength="50" required>
+                    </p>
+                  </div>
+                  <div class="course-info d-flex justify-content-between align-items-center">
+                    <label for="txtName"><strong>Apellido </strong></label>
+                    <p><input type="text" name="txtSurname" id="txtSurname" value="{{ student.surname }}" class="form-control" placeholder="Apellido" maxlength="50"
+                        required></p>
+                  </div>
+                  <div class="course-info d-flex justify-content-between align-items-center">
+                    <label for="intAge"><strong>Edad </strong></label>
+                    <p><input type="number" name="intAge" id="intAge" value="{{ student.age }}" class="form-control" placeholder="Edad" required></p>
+                  </div>
+                  <div class="course-info d-flex justify-content-between align-items-center">
+                    <label for="email"><strong>Email </strong></label>
+                    <p><input type="email" name="email" id="email" value="{{ student.email }}" class="form-control" placeholder="Correo electrónico" required></p>
+                  </div>
+                  <div class="course-info">
+                    <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+                  </div>
+
+                </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+{% endblock %}

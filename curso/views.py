@@ -22,7 +22,6 @@ def addCourse(request):
 
 def editCourse(request, id_course):
     course = Course.objects.get(id=id_course)
-    print(course.date_init)
     return render(request, 'course-details.html', {'course': course})
 
 def updateCourse(request):
@@ -45,6 +44,3 @@ def deleteCourse(request, id_course):
     course = Course.objects.get(id=id_course)
     course.delete()
     return redirect('/courses')
-
-def student(request):
-    return render(request, "students.html")
