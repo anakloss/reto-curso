@@ -1,0 +1,14 @@
+**/__pycache__
+
+## media files
+
+
+## virtual environment
+venv
+env
+
+## dotenv
+.env
+
+## sqlite
+db.sqlite3
