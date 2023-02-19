@@ -22,6 +22,7 @@
         <div class="row" data-aos="zoom-in" data-aos-delay="100">
 
           <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+
             <div class="card">
               <div class="card-body">
 
@@ -62,7 +63,7 @@
                     <th>Inicio</th>
                     <th>Fin</th>
                     <th>Estudiantes</th>
-                    <th colspan="">Opciones</th>
+                    <th colspan="2"></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -74,7 +75,7 @@
                     <td>{{ course.date_end | date:'d/m/Y' }}</td>
                     <td> </td>
                     <td><a href="editCourse/{{ course.id }}" class="btn btn-info"><i class="bi bi-pen"></i></a></td>
-                    <td><a href="deleteCourse/{{ course.id }}" class="btn btn-danger"><i class="bi bi-trash"></i></a></td>
+                    <td><a href="deleteCourse/{{ course.id }}" class="btn btn-danger btnDelete"><i class="bi bi-trash"></i></a></td>
                   </tr>
                   {% endfor %}
                 </tbody>
