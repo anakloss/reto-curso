@@ -10,7 +10,6 @@
     <div class="breadcrumbs">
       <div class="container">
         <h2>Listado de Cursos</h2>
-        <p>Est dolorum ut non facere possimus quibusdam eligendi voluptatem. </p>
       </div>
     </div><!-- End Breadcrumbs -->
 
@@ -62,7 +61,7 @@
                     <th>Horario</th>
                     <th>Inicio</th>
                     <th>Fin</th>
-                    <th>Estudiantes</th>
+                    <th colspan="2">Estudiantes</th>
                     <th colspan="2"></th>
                   </tr>
                 </thead>
@@ -73,7 +72,8 @@
                     <td>{{ course.schedule }}</td>
                     <td>{{ course.date_init | date:'d/m/Y' }}</td>
                     <td>{{ course.date_end | date:'d/m/Y' }}</td>
-                    <td> </td>
+                    <td>{{ course.students.count }}</td>
+                    <td><a href="addStudent/{{ course.id }}" class="btn btn-success"><i class="bi bi-person-plus-fill"></i></a></td>
                     <td><a href="editCourse/{{ course.id }}" class="btn btn-info"><i class="bi bi-pen"></i></a></td>
                     <td><a href="deleteCourse/{{ course.id }}" class="btn btn-danger btnDelete"><i class="bi bi-trash"></i></a></td>
                   </tr>

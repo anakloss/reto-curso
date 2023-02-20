@@ -1,4 +1,5 @@
 from django.db import models
+from estudiante.models import Student
 
 # Create your models here.
 
@@ -8,7 +9,8 @@ class Course(models.Model):
     schedule = models.TimeField(verbose_name='Horario')
     date_init = models.DateField(verbose_name='Fecha inicio')
     date_end = models.DateField(verbose_name='Fecha fin')
-    # n° estudiantes asociados
+    students = models.ManyToManyField(
+        Student, verbose_name='Estudiantes', related_name='students')
     created = models.DateTimeField(verbose_name='Creado', auto_now_add=True)
     updated = models.DateTimeField(verbose_name='Actualizado', auto_now_add=True)
 

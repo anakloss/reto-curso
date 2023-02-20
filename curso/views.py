@@ -6,9 +6,11 @@ from .models import Course
 def home(request):
     return render(request, "index.html")
 
+
 def course(request):
     courses = Course.objects.all()
     return render(request, "courses.html", {'courses': courses})
+
 
 def addCourse(request):
     name = request.POST['txtName']
@@ -23,6 +25,7 @@ def addCourse(request):
 def editCourse(request, id_course):
     course = Course.objects.get(id=id_course)
     return render(request, 'course-details.html', {'course': course})
+
 
 def updateCourse(request):
     id = request.POST['txtId']
@@ -39,6 +42,7 @@ def updateCourse(request):
     course.save()
 
     return redirect('/courses')
+
 
 def deleteCourse(request, id_course):
     course = Course.objects.get(id=id_course)
