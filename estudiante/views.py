@@ -6,7 +6,7 @@ from .models import Student
 
 def student(request):
     students = Student.objects.all()
-    return render(request, "students.html", {'students': students})
+    return render(request, "students.html", {'students': students.order_by('surname')})
 
 def addStudent(request):
     name = request.POST['txtName']
@@ -48,5 +48,4 @@ def deleteStudent(request, id_student):
 
 def listCourses(request, id_student):
     student = Student.objects.get(id=id_student)
-    print(student.students.all())
     return render(request, "student-courses.html", {'student': student, 'courses': student.students.all()})
