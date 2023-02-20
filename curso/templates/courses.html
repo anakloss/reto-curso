@@ -73,9 +73,12 @@
                     <td>{{ course.date_init | date:'d/m/Y' }}</td>
                     <td>{{ course.date_end | date:'d/m/Y' }}</td>
                     <td>{{ course.students.count }}</td>
-                    <td><a href="addStudent/{{ course.id }}" class="btn btn-success"><i class="bi bi-person-plus-fill"></i></a></td>
-                    <td><a href="editCourse/{{ course.id }}" class="btn btn-info"><i class="bi bi-pen"></i></a></td>
-                    <td><a href="deleteCourse/{{ course.id }}" class="btn btn-danger btnDelete"><i class="bi bi-trash"></i></a></td>
+                    <td><abbr title="Agregar estudiante"><a href="addStudentsCourse/{{ course.id }}" class="btn btn-success">
+                      <i class="bi bi-person-plus-fill"></i></a></abbr></td>
+                    <td><abbr title="Cursos asociados"><a href="editCourse/{{ course.id }}" class="btn btn-info">
+                      <i class="bi bi-pen"></i></a></abbr></td>
+                    <td><abbr title="Cursos asociados"><a href="deleteCourse/{{ course.id }}" class="btn btn-danger btnDelete">
+                      <i class="bi bi-trash"></i></a></abbr></td>
                   </tr>
                   {% endfor %}
                 </tbody>

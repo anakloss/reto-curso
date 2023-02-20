@@ -9,7 +9,6 @@
     <div class="breadcrumbs">
       <div class="container">
         <h2>Listado de Estudiantes</h2>
-        <p>Est dolorum ut non facere possimus quibusdam eligendi voluptatem. </p>
       </div>
     </div><!-- End Breadcrumbs -->
 
@@ -56,8 +55,8 @@
               <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th>Nombre</th>
                     <th>Apellido</th>
+                    <th>Nombre</th>
                     <th>Edad</th>
                     <th>Email</th>
                     <th colspan="3"></th>
@@ -66,13 +65,16 @@
                 <tbody>
                   {% for student in students %}
                   <tr>
-                    <td>{{ student.name }}</td>
                     <td>{{ student.surname }}</td>
+                    <td>{{ student.name }}</td>
                     <td>{{ student.age }}</td>
                     <td>{{ student.email }}</td>
-                    <td><a href="listCoursesStudent/{{ student.id }}" class="btn btn-success"><i class="bi bi-list-task"></i></a></td>
-                    <td><a href="editStudent/{{ student.id }}" class="btn btn-info"><i class="bi bi-pen"></i></a></td>
-                    <td><a href="deleteStudent/{{ student.id }}" class="btn btn-danger btnDelete"><i class="bi bi-trash"></i></a></td>
+                    <td><abbr title="Cursos asociados"><a href="listCoursesStudent/{{ student.id }}" class="btn btn-success">
+                      <i class="bi bi-list-task"></i></a></abbr></td>
+                    <td><abbr title="Editar"><a href="editStudent/{{ student.id }}" class="btn btn-info">
+                      <i class="bi bi-pen"></i></a></abbr></td>
+                    <td><abbr title="Editar"><a href="deleteStudent/{{ student.id }}" class="btn btn-danger btnDelete">
+                      <i class="bi bi-trash"></i></a></abbr></td>
                   </tr>
                   {% endfor %}
                 </tbody>
