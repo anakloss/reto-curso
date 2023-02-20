@@ -7,4 +7,5 @@ urlpatterns = [
     path("editStudent/<int:id_student>", views.editStudent),
     path("updateStudent/", views.updateStudent),
     path("deleteStudent/<int:id_student>", views.deleteStudent),
+    path("listCoursesStudent/<int:id_student>", views.listCourses),
 ]

@@ -45,3 +45,8 @@ def deleteStudent(request, id_student):
     student = Student.objects.get(id=id_student)
     student.delete()
     return redirect('/students')
+
+def listCourses(request, id_student):
+    student = Student.objects.get(id=id_student)
+    print(student.students.all())
+    return render(request, "student-courses.html", {'student': student, 'courses': student.students.all()})
