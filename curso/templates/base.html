@@ -52,7 +52,12 @@
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="{% if request.path == '/' %}active{% endif %}" href="{% url 'Home' %}">Inicio</a></li>
-          <li><a class="{% if request.path == '/courses/' %}active{% endif %}" href="{% url 'Cursos' %}">Cursos</a></li>
+          <li class="dropdown"><a class="{% if request.path == '/courses/' %}active{% endif %}" href="{% url 'Cursos' %}">
+            Cursos <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="/#popular-courses">Top 3</a></li>
+            </ul>
+          </li>
           <li><a class="{% if request.path == '/students/' %}active{% endif %}"href="{% url 'Estudiantes' %}">Estudiantes</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
