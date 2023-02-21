@@ -96,7 +96,7 @@ WSGI_APPLICATION = "reto_curso.wsgi.application"
 #     }
 # else:
 DATABASES = {
-    "default": dj_database_url.parse(default=os.getenv("DATABASE_URL"))
+    "default": dj_database_url.config(default=os.getenv("DATABASE_URL"))
 }
 
 # Password validation
