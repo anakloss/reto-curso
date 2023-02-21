@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-^vpuh4g#b27jx0^ye5fzb_q)nlq!adnr*!*gk=1u*1nz2_3k3=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['retocurso.onrender.com']
 
 
 # Application definition
@@ -76,17 +76,6 @@ WSGI_APPLICATION = "reto_curso.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql_psycopg2",
-#         "NAME": 'curso',
-#         "USER": 'postgres',
-#         "PASSWORD": 'pgadmin',
-#         "HOST": 'localhost',
-#         "PORT": '',
-#     }
-# }
 
 DATABASES = {
     "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))

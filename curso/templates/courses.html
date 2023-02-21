@@ -57,6 +57,7 @@
               <table class="table table-striped">
                 <thead>
                   <tr>
+                    <th>ID</th>
                     <th>Nombre</th>
                     <th>Horario</th>
                     <th>Inicio</th>
@@ -68,6 +69,7 @@
                 <tbody>
                   {% for course in courses %}
                   <tr>
+                    <td>{{ course.id }}</td>
                     <td>{{ course.name }}</td>
                     <td>{{ course.schedule }}</td>
                     <td>{{ course.date_init | date:'d/m/Y' }}</td>

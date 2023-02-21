@@ -2,19 +2,22 @@ from django.shortcuts import render, redirect
 from django.db.models import Count
 from estudiante.models import Student
 from .models import Course
+from datetime import datetime, timedelta
 
 
 # Create your views here.
 
 def home(request):
     # Filter top 3
-    courses = Course.objects.annotate(Count('students'))[:3]
-    return render(request, "index.html", {'courses': courses})
+    period = datetime.now() - timedelta(days=180)
+    courses = Course.objects.annotate(s_count=Count('students')).order_by('-s_count').filter(
+        updated__gte=period)
+    return render(request, "index.html", {'courses': courses[:3]})
 
 
 def course(request):
-    courses = Course.objects.all()
-    return render(request, "courses.html", {'courses': courses.order_by('name')})
+    courses = Course.objects.all().order_by('name')
+    return render(request, "courses.html", {'courses': courses})
 
 
 def addCourse(request):
@@ -55,13 +58,16 @@ def deleteCourse(request, id_course):
 
 
 def addStudents(request, id_course):
+    # List students of the course
     course = Course.objects.get(id=id_course)
-    students = Student.objects.all()
-    return render(request, 'course-student.html', {'course': course, 'students': students.order_by('surname')})
+    students = Student.objects.all().order_by('surname')
+    return render(request, 'course-student.html', {'course': course, 'students': students})
 
 
 def addStudentCourse(request, id_course):
     student = request.POST['newStudent']
     course = Course.objects.get(id=id_course)
     course.students.add(student)
+    course.updated = datetime.now()
+    course.save()
     return redirect('/courses/addStudentsCourse/' + str(id_course))
