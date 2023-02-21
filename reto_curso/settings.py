@@ -83,21 +83,9 @@ WSGI_APPLICATION = "reto_curso.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-if DEBUG:
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.postgresql_psycopg2",
-            "NAME": env('DB_NAME'),
-            "USER": env('DB_USER'),
-            "PASSWORD": env('DB_PASSWORD'),
-            "HOST": env('DB_HOST'),
-            "PORT": env('DB_PORT'),
-        }
-    }
-else:
-    DATABASES = {
-        "default": dj_database_url.parse(os.environ.get("DB_URL"))
-    }
+DATABASES = {
+    "default": dj_database_url.parse(os.environ.get("DB_URL"))
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
